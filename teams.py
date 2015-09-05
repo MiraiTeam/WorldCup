@@ -3,6 +3,8 @@ class Team:
         self.country = country
         self.confederation = confederation
         self.rank = rank
+    def isHost(self):
+        return 'host' in self.country
 
 def GetTeamsInfo():
     file = open('teamsInfo.txt','r')
@@ -17,8 +19,7 @@ def GetTeamsInfo():
     file.close()
     return teams
 
-def PrintTeamsInfo(teams):
-    #ckassify by confederation
+def GetTeamsClass(teams):
     teamsClass = {}
     for t in teams:
         if not teamsClass.has_key(t.confederation):
@@ -27,6 +28,13 @@ def PrintTeamsInfo(teams):
 
     for conf in teamsClass.keys():
         teamsClass[conf] = sorted(teamsClass[conf],key = lambda Team : Team.country)
+    
+    return teamsClass
+
+def PrintTeamsInfo(teams):
+    #ckassify by confederation
+
+    teamsClass = GetTeamsClass(teams)
 
     output = '' # we make a output string buffer
     for conf in sorted(teamsClass.keys()):
@@ -39,6 +47,6 @@ def PrintTeamsInfo(teams):
     file.writelines(output)
     file.close()
 
-
-teams = GetTeamsInfo()
-PrintTeamsInfo(teams)
+#teams = GetTeamsInfo()
+#PrintTeamsInfo(teams)
+#Seeding(teams)
