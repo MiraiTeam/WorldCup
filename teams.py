@@ -10,10 +10,14 @@ def GetTeamsInfo():
     file = open('teamsInfo.txt','r')
     teams = []
     for line in file:
+        line = line.strip('\n')
         sp = line.split(' ') # notice: the last element is '\n'
-        country = ' '.join(sp[1:len(sp) - 3])
-        confederation = sp[-3]
-        rank = int(sp[-2])
+        if sp[-1] == '':
+            del sp[-1]
+        #line = id,name,conf,rank
+        country = ' '.join(sp[1:len(sp) - 2])
+        confederation = sp[-2]
+        rank = int(sp[-1])
         team = Team(country,confederation,rank)
         teams.append(team)
     file.close()
@@ -47,6 +51,12 @@ def PrintTeamsInfo(teams):
     file.writelines(output)
     file.close()
 
+
 #teams = GetTeamsInfo()
+#file = open('flags.txt','w')
+#for t in sorted(teams,key = lambda Team:Team.country):
+#    print t.country
+#    file.write(t.country + '|\n')
+#file.close()
 #PrintTeamsInfo(teams)
 #Seeding(teams)

@@ -53,6 +53,7 @@ def Seeding1(teams):
 
 def Seeding2(pots):
     #step 2
+    #Seeding Team to eight Groups
     groups = [[] for i in range(8)]
     groups[0].append(pots[1][0]);
     del pots[1][0]
@@ -63,6 +64,7 @@ def Seeding2(pots):
     return groups
 
 def Seeding3(pots,groups):
+    #step3
     g = 0
     for p in range(2,5):
         for i in range(8):
@@ -110,6 +112,7 @@ def Seeding(teams):
     file = open('finalDraw.txt','w')
     file.writelines(output)
     file.close()
+    return groups
 
-teams = GetTeamsInfo()
-Seeding(teams)
+#teams = GetTeamsInfo()
+#Seeding(teams)
