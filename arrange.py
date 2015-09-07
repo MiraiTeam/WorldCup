@@ -66,8 +66,8 @@ def PrintArrangement(arrange):
     file.close()
 
 
-teams = GetTeamsInfo()
+#teams = GetTeamsInfo()
 #PrintTeamsInfo(teams)
-groups = Seeding(teams)
-arrange = GetArrangement(groups,0)
-PrintArrangement(arrange)
+#groups = Seeding(teams)
+#arrange = GetArrangement(groups,0)
+#PrintArrangement(arrange)

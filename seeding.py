@@ -89,7 +89,7 @@ def GetGroupsInfo(groups):
             output += ' ' + t.country + '\n'
     return output
 
-def Seeding(teams):
+def Seeding(teams,out = False):
     output = ''
     pots = GetPots(teams)
     output += 'First stage:\n'
@@ -108,7 +108,8 @@ def Seeding(teams):
     output += GetGroupsInfo(groups)
 
     #Seeding Over
-    print output
+    if out:
+        print output
     file = open('finalDraw.txt','w')
     file.writelines(output)
     file.close()

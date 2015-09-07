@@ -1,12 +1,25 @@
+from players import *
+
 class Team:
-    def __init__(self,country,confederation,rank):
+    def __init__(self,country,confederation,rank,players):
         self.country = country
         self.confederation = confederation
         self.rank = rank
+        self.players = players   #players[position] = Player()
     def isHost(self):
         return 'host' in self.country
 
 def GetTeamsInfo():
+    #Players Info
+    players = GetPlayers()
+    pl = {}
+    for p in players:
+        if not pl.has_key(p.country):
+            pl[p.country] = {}
+        if not pl[p.country].has_key(p.position):
+            pl[p.country][p.position] = []
+        pl[p.country][p.position].append(p)
+
     file = open('teamsInfo.txt','r')
     teams = []
     for line in file:
@@ -18,7 +31,7 @@ def GetTeamsInfo():
         country = ' '.join(sp[1:len(sp) - 2])
         confederation = sp[-2]
         rank = int(sp[-1])
-        team = Team(country,confederation,rank)
+        team = Team(country,confederation,rank,pl[country])
         teams.append(team)
     file.close()
     return teams
@@ -52,7 +65,7 @@ def PrintTeamsInfo(teams):
     file.close()
 
 
-#teams = GetTeamsInfo()
+teams = GetTeamsInfo()
 #file = open('flags.txt','w')
 #for t in sorted(teams,key = lambda Team:Team.country):
 #    print t.country
