@@ -6,7 +6,16 @@ class Team:
         self.confederation = confederation
         self.rank = rank
         self.players = players   #players[position] = Player()
-        self.info = dict()   #gp,W,D,L,GF,GA,GD,Pts
+        #self.info = dict()   #gp,W,D,L,GF,GA,GD,Pts
+        self.info = {'gp':'',
+                    'w':0,
+                    'd':0,
+                    'l':0,
+                    'gf':0,
+                    'ga':0,
+                    'gd':0,
+                    'pts':0
+                    }
     def isHost(self):
         return 'host' in self.country
 
@@ -59,19 +68,7 @@ def PrintTeamsInfo(teams):
         output += conf + ' (' + str(len(teamsClass[conf])) + ')\n'
         for t in teamsClass[conf]:
             output += '  ' + t.country + ' (' + str(t.rank) + ')\n'
-
     print output
     file = open('team32.txt','w')
     file.writelines(output)
     file.close()
-
-
-if __name__ == '__main__':
-    teams = GetTeamsInfo()
-    file = open('flags.txt','w')
-    for t in teams.values():
-        print t.country
-        file.write(t.country + '|\n')
-    file.close()
-    PrintTeamsInfo(teams)
-    #Seeding(teams)

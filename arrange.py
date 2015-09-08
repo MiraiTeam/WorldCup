@@ -34,14 +34,14 @@ def GetArrangement(groups,startDay):
             pl = random.sample(places,4)
             for u in range(4):
                 g = k * 4 + u
-                A = groups[g][i].country;
-                B = groups[g][j].country;
+                A = groups[g][i]
+                B = groups[g][j]
                 arrange.append(Arrangement(A,B,chr(ord('A') + g),pl[u],day))
             day += 1
     return arrange
 
 def PrintArrangement(arrange):
-
+    #arrange is a List
     #sort arrange by time
     arrange = sorted(arrange, key = lambda Arrangement : Arrangement.time)
 
@@ -72,11 +72,9 @@ def PrintArrangement(arrange):
     file = open('schedule16.txt','w')
     file.writelines(output)
     file.close()
-    return arr
 
 if __name__ == '__main__':
     teams = GetTeamsInfo()
     PrintTeamsInfo(teams)
     groups = Seeding(teams)
     arrange = GetArrangement(groups,0)
-    arrByTime = PrintArrangement(arrange)

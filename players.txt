@@ -1,7 +1,7 @@
 Brazil (host)
 1 GK Jefferson
 2 DF Dani Alves
-3 DF Thiago Silva (c)
+3 DF Thiago Silva
 4 DF David Luiz
 5 MF Fernandinho
 6 DF Marcelo
@@ -31,7 +31,7 @@ Cameroon
 6 MF Alex Song
 7 MF Landry N'Guemo
 8 FW Benjamin Moukandjo
-9 FW Samuel Eto'o (c)
+9 FW Samuel Eto'o
 10 FW Vincent Aboubakar
 11 MF Jean Makoun
 12 DF Henri Bedimo
@@ -57,7 +57,7 @@ Croatia
 8 MF Ognjen Vukojevi
 9 FW Nikica Jelavi
 10 MF Luka Modri
-11 DF Darijo Srna (c)
+11 DF Darijo Srna
 12 GK Oliver Zelenika
 13 DF Gordon Schildenfeld
 14 MF Marcelo Brozovi
@@ -74,7 +74,7 @@ Mexico
 1 GK Jose de Jesus Corona
 2 DF Francisco Javier Rodriguez
 3 DF Carlos Salcido
-4 DF Rafael Marquez (c)
+4 DF Rafael Marquez
 5 DF Diego Reyes
 6 MF Hector Herrera
 7 DF Miguel Layun
@@ -109,7 +109,7 @@ Australia
 12 GK Mitchell Langerak
 13 MF Oliver Bozani
 14 MF James Troisi
-15 MF Mile Jedinak (c)
+15 MF Mile Jedinak
 16 MF James Holland
 17 MF Matt McKay
 18 GK Eugene Galekovi
@@ -119,7 +119,7 @@ Australia
 22 DF Alex Wilkinson
 23 MF Mark Bresciano
 Chile
-1 GK Claudio Bravo (c)
+1 GK Claudio Bravo
 2 DF Eugenio Mena
 3 DF Miiko Albornoz
 4 MF Mauricio Isla
@@ -151,7 +151,7 @@ Netherlands
 6 MF Nigel de Jong
 7 DF Daryl Janmaat
 8 MF Jonathan de Guzman
-9 FW Robin van Persie (c)
+9 FW Robin van Persie
 10 MF Wesley Sneijder
 11 FW Arjen Robben
 12 DF Paul Verhaegh
@@ -167,7 +167,7 @@ Netherlands
 22 GK Michel Vorm
 23 GK Tim Krul
 Spain
-1 GK Iker Casillas (c)
+1 GK Iker Casillas
 2 DF Raul Albiol
 3 DF Gerard Pique
 4 MF Javi Martinez
@@ -193,7 +193,7 @@ Spain
 Colombia
 1 GK David Ospina
 2 DF Cristian Zapata
-3 DF Mario Yepes (c)
+3 DF Mario Yepes
 4 DF Santiago Arias
 5 MF Carlos Carbonero
 6 MF Carlos Sanchez
@@ -224,7 +224,7 @@ Greece
 7 FW Georgios Samaras
 8 MF Panagiotis Kone
 9 FW Kostas Mitroglou
-10 MF Giorgos Karagounis (c)
+10 MF Giorgos Karagounis
 11 DF Loukas Vyntra
 12 GK Panagiotis Glykos
 13 GK Stefanos Kapino
@@ -249,7 +249,7 @@ Ivory Coast
 8 FW Salomon Kalou
 9 MF Cheick Tiote
 10 FW Gervinho
-11 FW Didier Drogba (c)
+11 FW Didier Drogba
 12 FW Wilfried Bony
 13 FW Didier Ya Konan
 14 MF Ismal Diomande
@@ -265,27 +265,27 @@ Ivory Coast
 Japan
 1 GK Eiji Kawashima
 2 DF Atsuto Uchida
-3 DF Gōtoku Sakai
+3 DF Gotoku Sakai
 4 MF Keisuke Honda
 5 DF Yuto Nagatomo
 6 DF Masato Morishige
-7 MF Yasuhito Endō
+7 MF Yasuhito Endo
 8 MF Hiroshi Kiyotake
 9 FW Shinji Okazaki
 10 MF Shinji Kagawa
 11 FW Yoichiro Kakitani
 12 GK Shusaku Nishikawa
-13 FW Yoshito ōkubo
+13 FW Yoshito okubo
 14 MF Toshihiro Aoyama
 15 DF Yasuyuki Konno
 16 MF Hotaru Yamaguchi
-17 MF Makoto Hasebe (c)
+17 MF Makoto Hasebe
 18 FW Yuya Osako
 19 DF Masahiko Inoha
-20 FW Manabu Saitō
+20 FW Manabu Saito
 21 DF Hiroki Sakai
 22 DF Maya Yoshida
-23 GK Shūichi Gonda
+23 GK Shuichi Gonda
 Costa Rica
 1 GK Keylor Navas
 2 DF Johnny Acosta
@@ -296,7 +296,7 @@ Costa Rica
 7 MF Christian Bolaos
 8 DF David Myrie[66]
 9 FW Joel Campbell
-10 FW Bryan Ruiz (c)
+10 FW Bryan Ruiz
 11 MF Michael Barrantes
 12 DF Waylon Francis
 13 MF Esteban Granados
@@ -314,7 +314,7 @@ England
 1 GK Joe Hart
 2 DF Glen Johnson
 3 DF Leighton Baines
-4 MF Steven Gerrard (c)
+4 MF Steven Gerrard
 5 DF Gary Cahill
 6 DF Phil Jagielka
 7 MF Jack Wilshere
@@ -335,7 +335,7 @@ England
 22 GK Fraser Forster
 23 DF Luke Shaw
 Italy
-1 GK Gianluigi Buffon (c)
+1 GK Gianluigi Buffon
 2 DF Mattia De Sciglio
 3 DF Giorgio Chiellini
 4 DF Matteo Darmian
@@ -360,7 +360,7 @@ Italy
 23 MF Marco Verratti
 Uruguay
 1 GK Fernando Muslera
-2 DF Diego Lugano (c)
+2 DF Diego Lugano
 3 DF Diego Godin
 4 DF Jorge Fucile
 5 MF Walter Gargano
@@ -398,7 +398,7 @@ Ecuador
 13 FW Enner Valencia
 14 MF Oswaldo Minda
 15 MF Michael Arroyo
-16 MF Antonio Valencia (c)
+16 MF Antonio Valencia
 17 FW Jaime Ayovi
 18 DF oscar Bagüi
 19 MF Luis Saritama
@@ -407,13 +407,13 @@ Ecuador
 22 GK Alexander Dominguez
 23 MF Carlos Gruezo
 France
-1 GK Hugo Lloris (c)
+1 GK Hugo Lloris
 2 DF Mathieu Debuchy
 3 DF Patrice Evra
 4 DF Raphal Varane
 5 DF Mamadou Sakho
 6 MF Yohan Cabaye
-7 MF Remy Cabella[94]
+7 MF Remy Cabella
 8 MF Mathieu Valbuena
 9 FW Olivier Giroud
 10 FW Karim Benzema
@@ -422,13 +422,13 @@ France
 13 DF Eliaquim Mangala
 14 MF Blaise Matuidi
 15 DF Bacary Sagna
-16 GK Stephane Ruffier[96]
+16 GK Stephane Ruffier
 17 DF Lucas Digne
 18 MF Moussa Sissoko
 19 MF Paul Pogba
 20 FW Loc Remy
 21 DF Laurent Koscielny
-22 MF Morgan Schneiderlin[98]
+22 MF Morgan Schneiderlin
 23 GK Mickal Landreau
 Honduras
 1 GK Luis Lopez
@@ -442,13 +442,13 @@ Honduras
 9 FW Jerry Palacios
 10 MF Mario Martinez
 11 FW Jerry Bengtson
-12 MF Edder Delgado[101]
+12 MF Edder Delgado
 13 FW Carlo Costly
 14 MF oscar Boniek Garcia
 15 MF Roger Espinoza
 16 FW Rony Martinez
 17 MF Andy Najar
-18 GK Noel Valladares (c)
+18 GK Noel Valladares
 19 MF Luis Garrido
 20 MF Jorge Claros
 21 DF Brayan Beckeles
@@ -462,7 +462,7 @@ Switzerland
 5 DF Steve von Bergen
 6 DF Michael Lang
 7 MF Tranquillo Barnetta
-8 MF Gkhan Inler (c)
+8 MF Gkhan Inler
 9 FW Haris Seferovi
 10 MF Granit Xhaka
 11 MF Valon Behrami
@@ -488,7 +488,7 @@ Argentina
 7 MF angel Di Maria
 8 MF Enzo Perez
 9 FW Gonzalo Higuain
-10 FW Lionel Messi (c)
+10 FW Lionel Messi
 11 MF Maxi Rodriguez
 12 GK Agustin Orion
 13 MF Augusto Fernandez
@@ -506,7 +506,7 @@ Bosnia and Herzegovina
 1 GK Asmir Begovi
 2 DF Avdija Vrajevi
 3 DF Ermin Biaki
-4 DF Emir Spahi (c)
+4 DF Emir Spahi
 5 DF Sead Kolainac
 6 DF Ognjen Vranje
 7 DF Muhamed Bei
@@ -532,7 +532,7 @@ Iran
 3 MF Ehsan Hajsafi
 4 DF Jalal Hosseini
 5 DF Amir Hossein Sadeghi
-6 MF Javad Nekounam (c)
+6 MF Javad Nekounam
 7 MF Masoud Shojaei
 8 MF Reza Haghighi
 9 FW Alireza Jahanbakhsh
@@ -552,7 +552,7 @@ Iran
 23 DF Mehrdad Pouladi
 Nigeria
 1 GK Vincent Enyeama
-2 DF Joseph Yobo (c)
+2 DF Joseph Yobo
 3 MF Ejike Uzoenyi
 4 MF Reuben Gabriel
 5 DF Efe Ambrose
@@ -590,7 +590,7 @@ Germany
 13 MF Thomas Müller
 14 MF Julian Draxler
 15 DF Erik Durm
-16 DF Philipp Lahm (c)
+16 DF Philipp Lahm
 17 DF Per Mertesacker
 18 MF Toni Kroos
 19 MF Mario Gtze
@@ -601,7 +601,7 @@ Germany
 Ghana
 1 GK Stephen Adams
 2 DF Samuel Inkoom
-3 FW Asamoah Gyan (c)
+3 FW Asamoah Gyan
 4 DF Daniel Opare
 5 MF Michael Essien
 6 MF Afriyie Acquah
@@ -629,7 +629,7 @@ Portugal
 4 MF Miguel Veloso
 5 DF Fabio Coentro
 6 MF William Carvalho
-7 FW Cristiano Ronaldo (c)
+7 FW Cristiano Ronaldo
 8 MF Joo Moutinho
 9 FW Hugo Almeida
 10 MF Vieirinha
@@ -654,7 +654,7 @@ United States
 5 DF Matt Besler
 6 DF John Brooks
 7 DF DaMarcus Beasley
-8 FW Clint Dempsey (c)
+8 FW Clint Dempsey
 9 FW Aron Johannsson
 10 MF Mix Diskerud
 11 MF Alejandro Bedoya
@@ -672,7 +672,7 @@ United States
 23 DF Fabian Johnson
 Algeria
 1 GK Cedric Si Mohamed
-2 DF Madjid Bougherra (c)
+2 DF Madjid Bougherra
 3 DF Faouzi Ghoulam
 4 DF Essad Belkalem
 5 DF Rafik Halliche
@@ -698,7 +698,7 @@ Belgium
 1 GK Thibaut Courtois
 2 DF Toby Alderweireld
 3 DF Thomas Vermaelen
-4 DF Vincent Kompany (c)
+4 DF Vincent Kompany
 5 DF Jan Vertonghen
 6 MF Axel Witsel
 7 MF Kevin De Bruyne
@@ -732,7 +732,7 @@ Russia
 11 FW Aleksandr Kerzhakov
 12 GK Yuri Lodygin
 13 DF Vladimir Granat
-14 DF Vasili Berezutski (c)
+14 DF Vasili Berezutski
 15 MF Pavel Mogilevets
 16 GK Sergey Ryzhikov
 17 MF Oleg Shatov
@@ -755,7 +755,7 @@ South Korea
 10 FW Park Chu-young
 11 FW Lee Keun-ho
 12 DF Lee Yong
-13 MF Koo Ja-cheol (c)
+13 MF Koo Ja-cheol
 14 MF Han Kook-young
 15 MF Park Jong-woo
 16 MF Ki Sung-yueng
@@ -764,5 +764,5 @@ South Korea
 19 FW Ji Dong-won
 20 DF Hong Jeong-ho
 21 GK Kim Seung-gyu
-22 DF Park Joo-ho[164]
+22 DF Park Joo-ho
 23 GK Lee Bum-young
