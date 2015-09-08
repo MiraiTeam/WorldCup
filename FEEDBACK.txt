@@ -20,3 +20,8 @@ arrange.py 里的 PrintArrangement() 返回一个字典，里面储存的是比�
 pots(抽签罐) 改为存储队伍名字
 group 存储的是队伍的名字
 teams采用字典，以队伍名为key
+
+events.txt改为了ANSI编码，这样中文不会出现乱码，原因不明
+emulate中，def Play(teams,A,B,pA,pB,eventLib,timeout = False)为模拟比赛接口
+参数为teams,A队队名，B队队名，A队出场队员，B队出场队员，事件库，是否允许加时赛
+Event为事件，存储时间与事件内容
