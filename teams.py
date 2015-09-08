@@ -6,6 +6,7 @@ class Team:
         self.confederation = confederation
         self.rank = rank
         self.players = players   #players[position] = Player()
+        self.info = dict()   #gp,W,D,L,GF,GA,GD,Pts
     def isHost(self):
         return 'host' in self.country
 
@@ -14,14 +15,14 @@ def GetTeamsInfo():
     players = GetPlayers()
     pl = {}
     for p in players:
-        if not pl.has_key(p.country):
+        if p.country not in pl:
             pl[p.country] = {}
-        if not pl[p.country].has_key(p.position):
+        if p.position not in pl[p.country]:
             pl[p.country][p.position] = []
         pl[p.country][p.position].append(p)
 
     file = open('teamsInfo.txt','r')
-    teams = []
+    teams = {}
     for line in file:
         line = line.strip('\n')
         sp = line.split(' ') # notice: the last element is '\n'
@@ -32,18 +33,18 @@ def GetTeamsInfo():
         confederation = sp[-2]
         rank = int(sp[-1])
         team = Team(country,confederation,rank,pl[country])
-        teams.append(team)
+        teams[country] = team
     file.close()
     return teams
 
 def GetTeamsClass(teams):
     teamsClass = {}
-    for t in teams:
-        if not teamsClass.has_key(t.confederation):
+    for t in teams.values():
+        if t.confederation not in teamsClass:
             teamsClass[t.confederation] = []
         teamsClass[t.confederation].append(t)
 
-    for conf in teamsClass.keys():
+    for conf in teamsClass:
         teamsClass[conf] = sorted(teamsClass[conf],key = lambda Team : Team.country)
     
     return teamsClass
@@ -65,11 +66,12 @@ def PrintTeamsInfo(teams):
     file.close()
 
 
-teams = GetTeamsInfo()
-#file = open('flags.txt','w')
-#for t in sorted(teams,key = lambda Team:Team.country):
-#    print t.country
-#    file.write(t.country + '|\n')
-#file.close()
-#PrintTeamsInfo(teams)
-#Seeding(teams)
+if __name__ == '__main__':
+    teams = GetTeamsInfo()
+    file = open('flags.txt','w')
+    for t in teams.values():
+        print t.country
+        file.write(t.country + '|\n')
+    file.close()
+    PrintTeamsInfo(teams)
+    #Seeding(teams)

@@ -29,6 +29,13 @@ def GetTeam(teams,country):
         if t.country == country:
             return t
 
+def CreatEvent():
+    # not done yet
+    f = open("events.txt")
+    for x in f.readlines():
+        print x
+    f.close()
+
 def Emulate(teams,arrange):
     A = arrange.A
     B = arrange.B
@@ -50,11 +57,17 @@ def Emulate(teams,arrange):
     file.writelines(output)
     file.close()
 
-teams = GetTeamsInfo()
-groups = Seeding(teams)
-arrange = GetArrangement(groups,0)
-print '--',len(teams)
-for t in teams:
-    if len(t.players) != 4:
-        print 'aaa'
-Emulate(teams,arrange[0][0])
+if __name__ == '__main__':
+    #CreatEvent()
+    teams = GetTeamsInfo()
+    groups = Seeding(teams)
+    arrange = GetArrangement(groups,0)
+    print '--',len(teams)
+    for t in teams:
+        if len(t.players) != 4:
+            print 'aaa'
+    for i in arrange:
+        for x in i:
+            print x.A, "vs", x.B
+        print '\n'
+    Emulate(teams,arrange[0][0])

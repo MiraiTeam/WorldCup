@@ -4,6 +4,7 @@ class Player:
         self.country = country
         self.id = id
         self.position = position
+        self.info = dict()
 
 def GetPlayers():
     players = []
@@ -25,4 +26,5 @@ def GetPlayers():
     file.close()
     return players
 
-#GetPlayers()
+if __name__ == '__main__':
+    GetPlayers()

@@ -2,9 +2,10 @@ import datetime
 from seeding import *
 
 class Arrangement:
-    def __init__(self,A,B,place,time):
+    def __init__(self,A,B,group,place,time):
         self.A = A
         self.B = B
+        self.group = group
         self.place = place
         self.time = time
     def GetTime(self):
@@ -24,8 +25,8 @@ def GetPlaces():
     return places
 
 def GetArrangement(groups,startDay):
-    #every group has four teams, 6 matches
-    arrange = [[] for i in range(8)] #stored by group
+    #return a List, the all arrangement
+    arrange = []
     places = GetPlaces()
     day  = startDay
     for (i,j) in {(0,1),(1,2),(2,3),(3,0),(0,2),(1,3)}:
@@ -35,25 +36,32 @@ def GetArrangement(groups,startDay):
                 g = k * 4 + u
                 A = groups[g][i].country;
                 B = groups[g][j].country;
-                arrange[g].append(Arrangement(A,B,pl[u],day))
+                arrange.append(Arrangement(A,B,chr(ord('A') + g),pl[u],day))
             day += 1
     return arrange
 
 def PrintArrangement(arrange):
-    arr = []
+
+    #sort arrange by time
+    arrange = sorted(arrange, key = lambda Arrangement : Arrangement.time)
+
     output = 'Matches by squads\n'
+    #print arrangement by group
+    arr = [[] for i in range(16)]
+    for a in arrange:
+        arr[ord(a.group) - ord('A')].append(a)
+
     for g in range(8):
         output += 'Group ' + chr(ord('A') + g) + '\n'
-        for a in arrange[g]:
-            arr.append(a)
+        for a in arr[g]:
             output += ' ' + a.A + ' vs ' + a.B + ', '
             output += a.place + ', '
             output += a.GetTime() + '\n'
+
     output += '\n'
     output += 'Matches by date\n'
-
     ti = -1
-    for a in sorted(arr, key = lambda Arrangement : Arrangement.time):
+    for a in arrange:
         if ti != a.time:
             output += a.GetTime() + '\n'
             ti = a.time
@@ -64,10 +72,11 @@ def PrintArrangement(arrange):
     file = open('schedule16.txt','w')
     file.writelines(output)
     file.close()
+    return arr
 
-
-#teams = GetTeamsInfo()
-#PrintTeamsInfo(teams)
-#groups = Seeding(teams)
-#arrange = GetArrangement(groups,0)
-#PrintArrangement(arrange)
+if __name__ == '__main__':
+    teams = GetTeamsInfo()
+    PrintTeamsInfo(teams)
+    groups = Seeding(teams)
+    arrange = GetArrangement(groups,0)
+    arrByTime = PrintArrangement(arrange)

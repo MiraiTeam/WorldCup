@@ -3,23 +3,23 @@ from teams import *
 
 def GetPots(teams):
     #sorted by rank
-    tr = sorted(teams,key = lambda Team : Team.rank)
+    tr = sorted(teams.values(), key = lambda Team : Team.rank)
 
-    pots = [ [] for i in range(5)]
+    pots = [ [] for i in range(5)] # stored the name of the team
     selected = [False for i in range(len(tr))]
     #add host to pot 1
     for host in range(len(tr)):
         if tr[host].isHost():
             break
 
-    pots[1].append(tr[host])
+    pots[1].append(tr[host].country)
     selected[host] = True
 
     #add better team to pot 1
     haveSelected = 1
     for i in range(len(tr)):
         if not selected[i]:
-            pots[1].append(tr[i])
+            pots[1].append(tr[i].country)
             selected[i] = True
             haveSelected = haveSelected + 1
             if haveSelected == 8:
@@ -29,15 +29,15 @@ def GetPots(teams):
         if not selected[i]:
             t = tr[i]
             if t.confederation == 'AFC':
-                pots[3].append(t)
+                pots[3].append(t.country)
             elif t.confederation == 'CAF':
-                pots[2].append(t)
+                pots[2].append(t.country)
             elif t.confederation == 'CONCACAF':
-                pots[3].append(t)
+                pots[3].append(t.country)
             elif t.confederation == 'CONMEBOL':
-                pots[2].append(t)
+                pots[2].append(t.country)
             else:#UEFA
-                pots[4].append(t)
+                pots[4].append(t.country)
             selected[i] = True
     return pots
 
@@ -47,7 +47,7 @@ def Seeding1(teams):
     #a team from pot 4 to pot 2
     w = random.randint(0,len(pots[4])  - 1)
     pots[2].append(pots[4][w])
-    country = pots[4][w].country
+    country = pots[4][w]
     del pots[4][w]
     return country,pots
 
@@ -70,6 +70,7 @@ def Seeding3(pots,groups):
         for i in range(8):
             w = random.randint(0,len(pots[p]) - 1)
             groups[g].append(pots[p][w])
+            del pots[p][w]   #fix bug
             g = (g + 1) % 8
     return groups
 
@@ -78,15 +79,15 @@ def GetPotsInfo(pots):
     for p in range(1,5):
         output += 'pot' + str(p) + '\n'
         for t in pots[p]:
-            output += ' ' + t.country + '\n'
+            output += ' ' + t + '\n'
     return output
 
 def GetGroupsInfo(groups):
     output = ''
     for i in range(8):
         output += 'group ' + chr(ord('A') + i) + '\n'
-        for t in groups[i]:
-            output += ' ' + t.country + '\n'
+        for name in groups[i]:
+            output += ' ' + name + '\n'
     return output
 
 def Seeding(teams,out = False):
@@ -107,13 +108,24 @@ def Seeding(teams,out = False):
     groups = Seeding3(pots,groups)
     output += GetGroupsInfo(groups)
 
+    #set the group for all teams
+    for i in range(8):
+        for name in groups[i]:
+            teams[name].info['gp'] = chr(ord('A') + i)
+
     #Seeding Over
     if out:
-        print output
+        print "result:\n",output
     file = open('finalDraw.txt','w')
     file.writelines(output)
     file.close()
     return groups
 
-#teams = GetTeamsInfo()
-#Seeding(teams)
+
+if __name__ == '__main__':
+    teams = GetTeamsInfo()
+    groups = Seeding(teams,True)
+    for group in groups:
+        for name in group:
+            team = teams[name]
+            print team.info['gp'],team.country
