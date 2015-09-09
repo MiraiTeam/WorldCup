@@ -1,5 +1,5 @@
 #coding=utf-8
-from players import *
+from player import *
 
 class Team:
     def __init__(self,country,confederation,rank,players):
@@ -8,14 +8,14 @@ class Team:
         self.rank = rank
         self.players = players   #players[position] = Dict[Player()]
         #self.info = dict()   #gp,W,D,L,GF,GA,GD,Pts
-        self.info = {'gp':'',	#æ‰€å±å°ç»„
-                    'w':0,		#èƒœåˆ©
-                    'd':0,		#å¹³å±€
-                    'l':0,		#è¾“
-                    'gf':0,		#è¿›çƒæ•°
-                    'ga':0,		#ä¸¢çƒæ•°
-                    'gd':0,		#å‡€èƒœçƒ GF-GA
-                    'pts':0		#å¾—åˆ† W*3+D
+        self.info = {'gp':'',	#ËùÊôĞ¡×é
+                    'w':0,		#Ê¤Àû
+                    'd':0,		#Æ½¾Ö
+                    'l':0,		#Êä
+                    'gf':0,		#½øÇòÊı
+                    'ga':0,		#¶ªÇòÊı
+                    'gd':0,		#¾»Ê¤Çò GF-GA
+                    'pts':0		#µÃ·Ö W*3+D
                     }
     def isHost(self):
         return 'host' in self.country

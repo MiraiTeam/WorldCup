@@ -57,9 +57,11 @@ def Play(teams,A,B,pA,pB,eventLib,timeout = False):
     eventP = 350.0 / 5400   #发生事件的概率
     weak = 0.2             #衰弱值
     morale = 0.1           #士气
+    eventA = 0.3           #timeout add morale
     events = []
     t += random.randint(180,300)
     time = 90 * 60
+    addTime = 0
     while t < time:
         r = random.random()
         if r < eventP:
@@ -92,11 +94,13 @@ def Play(teams,A,B,pA,pB,eventLib,timeout = False):
 
         t += random.randint(3,180)
         if t >= time and (timeout and score[0] == score[1]):
-			ev = Event(time,'进入加时赛',score)
-			events.append(ev)
-			output += str(ev) + '\n'
-			output += '当前比分: ' + str(score[0]) + ' : ' + str(score[1]) + '\n'
-			time += 30 * 60   #加时
+            addTime += 1
+            msg = '当前双方持平: ' + str(score[0]) + ' : ' + str(score[1]) + ', 进入第%d场加时赛' % addTime
+            ev = Event(time,msg,score)
+            events.append(ev)
+            output += str(ev) + '\n'
+            time += 30 * 60   #加时
+            eventP = eventP * (1.0 + eventA)
 
 	msg = '比赛结束，最终比分: ' + str(score[0]) + ' : ' + str(score[1]) + ', '
 	
@@ -110,13 +114,13 @@ def Play(teams,A,B,pA,pB,eventLib,timeout = False):
 
     #统计结果
     if score[0] == score[1]:
-        teams[A]['d'] += 1
-        teams[A]['gf'] += score[0]
-        teams[A]['ga'] += score[1]
+        teams[A].info['d'] += 1
+        teams[A].info['gf'] += score[0]
+        teams[A].info['ga'] += score[1]
 
-        teams[B]['d'] += 1
-        teams[B]['gf'] += score[1]
-        teams[B]['ga'] += score[0]
+        teams[B].info['d'] += 1
+        teams[B].info['gf'] += score[1]
+        teams[B].info['ga'] += score[0]
     else:
         w = score[0] < score[1]
         l = 1 - w
@@ -134,33 +138,38 @@ def Play(teams,A,B,pA,pB,eventLib,timeout = False):
     teams[A].info['pts'] = teams[A].info['w'] * 3 + teams[A].info['d']
     teams[B].info['pts'] = teams[B].info['w'] * 3 + teams[B].info['d']
 
-    return output
+    return (output,events)
 
-def Emulate(teams,arrange,eventLib):
+def Emulate(teams,arrange,eventLib,timeout = False):
+    #return (outputMessage, events)
     A = arrange.A
     B = arrange.B
     pA = GetPlayers(teams[A])
     pB = GetPlayers(teams[B])
     output = ''
-    output += 'Group state:\n'
-    output += A + ' vs ' + B + '\n'
+    #output += A + ' vs ' + B + '\n'
     output += A + '\n'
-    #output += GetPlayersInfo(pA)
+    output += GetPlayersInfo(pA)
     output += B + '\n'
-    #output += GetPlayersInfo(pB)
+    output += GetPlayersInfo(pB)
 
     output += 'Playing...\n'
-    output += Play(teams,A,B,pA,pB,eventLib)
+    pl = Play(teams,A,B,pA,pB,eventLib,timeout)
+    output += pl[0]
 
-    print output
-    file = open('www.txt','w')
-    file.writelines(output)
-    file.close()
+    return (output,pl[1])
 
 if __name__ == '__main__':
-    #CreatEvent()
     teams = GetTeamsInfo()
     groups = Seeding(teams)
-    arrange = GetArrangement(groups,0)
+    arrange = GetArrangement(groups)
     eventLib = EventLib()
-    Emulate(teams,arrange[0],eventLib)
+    output = ''
+    output += 'Group state:\n'
+    for a in arrange:
+        output += str(a) + '\n'
+        (op,ev) = Emulate(teams,a,eventLib,True)
+        output += op + '\n'
+    file = open('GroupMatch.txt','w')
+    file.writelines(output)
+    file.close()

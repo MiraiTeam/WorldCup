@@ -25,7 +25,6 @@ def GetPlayers():
             players.append(Player(name,country,id,pos))
         except:
             country = u
-            print u
     file.close()
     return players
 

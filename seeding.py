@@ -128,4 +128,4 @@ if __name__ == '__main__':
     for group in groups:
         for name in group:
             team = teams[name]
-            print team.info['gp'],team.country
+            #print team.info['gp'],team.country

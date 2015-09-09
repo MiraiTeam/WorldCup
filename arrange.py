@@ -14,6 +14,11 @@ class Arrangement:
         months = ['','January','February','March','April','May','June',\
                     'July','August','September','October','November','December']
         return months[nt.month] + ' ' + str(nt.day)
+    def __str__(self):
+        output = self.A + ' vs ' + self.B + ', '
+        output += self.place + ', '
+        output += self.GetTime()
+        return output
 
 
 def GetPlaces():
@@ -24,7 +29,7 @@ def GetPlaces():
     file.close()
     return places
 
-def GetArrangement(groups,startDay):
+def GetArrangement(groups,startDay = 0):
     #return a List, the all arrangement
     arrange = []
     places = GetPlaces()

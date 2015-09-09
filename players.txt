@@ -400,7 +400,7 @@ Ecuador
 15 MF Michael Arroyo
 16 MF Antonio Valencia
 17 FW Jaime Ayovi
-18 DF oscar Bagüi
+18 DF oscar Bagui
 19 MF Luis Saritama
 20 MF Fidel Martinez
 21 DF Gabriel Achilier
@@ -475,7 +475,7 @@ Switzerland
 18 FW Admir Mehmedi
 19 FW Josip Drmi
 20 DF Johan Djourou
-21 GK Roman Bürki
+21 GK Roman Burki
 22 DF Fabian Schr
 23 MF Xherdan Shaqiri
 Argentina
@@ -498,7 +498,7 @@ Argentina
 17 DF Federico Fernandez
 18 FW Rodrigo Palacio
 19 MF Ricardo alvarez
-20 FW Sergio Agüero
+20 FW Sergio Aguero
 21 GK Mariano Andujar
 22 FW Ezequiel Lavezzi
 23 DF Jose Maria Basanta
@@ -583,11 +583,11 @@ Germany
 6 MF Sami Khedira
 7 MF Bastian Schweinsteiger
 8 MF Mesut zil
-9 MF Andre Schürrle
+9 MF Andre Schurrle
 10 FW Lukas Podolski
 11 FW Miroslav Klose
 12 GK Ron-Robert Zieler
-13 MF Thomas Müller
+13 MF Thomas Muller
 14 MF Julian Draxler
 15 DF Erik Durm
 16 DF Philipp Lahm
