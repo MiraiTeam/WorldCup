@@ -1,3 +1,4 @@
+#coding=utf-8
 from players import *
 
 class Team:
@@ -5,16 +6,16 @@ class Team:
         self.country = country
         self.confederation = confederation
         self.rank = rank
-        self.players = players   #players[position] = Player()
+        self.players = players   #players[position] = Dict[Player()]
         #self.info = dict()   #gp,W,D,L,GF,GA,GD,Pts
-        self.info = {'gp':'',
-                    'w':0,
-                    'd':0,
-                    'l':0,
-                    'gf':0,
-                    'ga':0,
-                    'gd':0,
-                    'pts':0
+        self.info = {'gp':'',	#所属小组
+                    'w':0,		#胜利
+                    'd':0,		#平局
+                    'l':0,		#输
+                    'gf':0,		#进球数
+                    'ga':0,		#丢球数
+                    'gd':0,		#净胜球 GF-GA
+                    'pts':0		#得分 W*3+D
                     }
     def isHost(self):
         return 'host' in self.country
@@ -27,8 +28,8 @@ def GetTeamsInfo():
         if p.country not in pl:
             pl[p.country] = {}
         if p.position not in pl[p.country]:
-            pl[p.country][p.position] = []
-        pl[p.country][p.position].append(p)
+            pl[p.country][p.position] = {}
+        pl[p.country][p.position][p.name] = p
 
     file = open('teamsInfo.txt','r')
     teams = {}

@@ -9,7 +9,7 @@ class EventLib:
                 del sp[-1]
             sen = ' '.join(sp[1:])
             self.events[int(sp[0])].append(sen)
-    def GetEvent(self,teamA,teamB,nameA,nameB,success):
+    def GetEvent(self,teamA,teamB,nameA,nameB,menjiangB,success):
         #teamA is class Team
         #nameA is the name of the attacker
         #when success is 1, return the success event;
@@ -19,12 +19,13 @@ class EventLib:
         sen = sen.replace('{teamB}',teamB.country)
         sen = sen.replace('{nameA}',nameA)
         sen = sen.replace('{nameB}',nameB)
-        sen = sen.replace('{menjiangB}',teamB.players['GK'][0].name)
+        sen = sen.replace('{menjiangB}',menjiangB)
         return sen
 		
 class Event:
-	def __init__(self,time,context):
+	def __init__(self,time,context,score):
 		self.time = time
 		self.context = context
+		self.score = score
 	def __str__(self):
 		return '[%.2d:%.2d] ' % (self.time / 60, self.time % 60) + self.context

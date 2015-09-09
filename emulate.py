@@ -13,7 +13,7 @@ def GetPlayers(team):
     for z in t:
         try:
             for i in range(-1,-5,-1):
-                players += sorted(random.sample(team.players[p[i]],z[i]), key = lambda Player : Player.id)
+                players += sorted(random.sample(team.players[p[i]].values(),z[i]), key = lambda Player : Player.id)
             break
         except ValueError:
             players = []
@@ -45,6 +45,13 @@ def Play(teams,A,B,pA,pB,eventLib,timeout = False):
     abilityB = 1000 / rankB
     score = [0,0] #scoreA and scoreB
     attack = [pA,pB]
+    menjiang = ['','']
+    for i in range(2):
+        for p in attack[i]:
+            if p.position == 'GK':
+                menjiang[i] = p.name
+                break
+
     name = [A,B]
     t = 0  #time seconds
     eventP = 350.0 / 5400   #发生事件的概率
@@ -67,32 +74,66 @@ def Play(teams,A,B,pA,pB,eventLib,timeout = False):
             defender = random.choice(attack[d][1:])
             if k[c] > k[d]:
                 #success
-                ev = Event(t,eventLib.GetEvent(teams[name[c]],teams[name[d]],attacker.name,defender.name,1))
+                ev = Event(t,eventLib.GetEvent(teams[name[c]],teams[name[d]],attacker.name,defender.name,menjiang[d],1),score)
                 events.append(ev)
-                output += str(ev)
-                output += '\n'
+                output += str(ev) + '\n'
                 score[c] += 1
                 k[c] *= (1.0 + morale)
                 eventP *= (1.0 - weak)
                 t += 120
                 output += '当前比分: ' + str(score[0]) + ' : ' + str(score[1]) + '\n'
+                #update player info
+                teams[name[c]].players[attacker.position][attacker.name].info['g'] += 1
             else:
                 #fail
-                ev = Event(t,eventLib.GetEvent(teams[name[c]],teams[name[d]],attacker.name,defender.name,0))
+                ev = Event(t,eventLib.GetEvent(teams[name[c]],teams[name[d]],attacker.name,defender.name,menjiang[d],0),score)
                 events.append(ev)
-                output += str(ev)
-                output += '\n'
+                output += str(ev) + '\n'
 
         t += random.randint(3,180)
         if t >= time and (timeout and score[0] == score[1]):
+			ev = Event(time,'进入加时赛',score)
+			events.append(ev)
+			output += str(ev) + '\n'
+			output += '当前比分: ' + str(score[0]) + ' : ' + str(score[1]) + '\n'
 			time += 30 * 60   #加时
 
-		
-				
-    ev = Event(time,'比赛结束')
+	msg = '比赛结束，最终比分: ' + str(score[0]) + ' : ' + str(score[1]) + ', '
+	
+    if score[0] == score[1]:
+		msg += '平局'
+    else:
+		msg += name[score[0] < score[1]] + '队胜利！'
+    ev = Event(time,msg,score)
     events.append(ev)
     output += str(ev) + '\n'
-    output += '最终比分: ' + str(score[0]) + ' : ' + str(score[1]) + '\n'
+
+    #统计结果
+    if score[0] == score[1]:
+        teams[A]['d'] += 1
+        teams[A]['gf'] += score[0]
+        teams[A]['ga'] += score[1]
+
+        teams[B]['d'] += 1
+        teams[B]['gf'] += score[1]
+        teams[B]['ga'] += score[0]
+    else:
+        w = score[0] < score[1]
+        l = 1 - w
+        teams[name[w]].info['w'] += 1
+        teams[name[l]].info['l'] += 1
+        teams[A].info['gf'] += score[0]
+        teams[A].info['ga'] += score[1]
+        teams[B].info['gf'] += score[1]
+        teams[B].info['ga'] += score[0]
+	
+    #update gd
+    teams[A].info['gd'] = teams[A].info['gf'] - teams[A].info['ga']
+    teams[B].info['gd'] = teams[B].info['gf'] - teams[B].info['ga']
+    #update pts
+    teams[A].info['pts'] = teams[A].info['w'] * 3 + teams[A].info['d']
+    teams[B].info['pts'] = teams[B].info['w'] * 3 + teams[B].info['d']
+
     return output
 
 def Emulate(teams,arrange,eventLib):

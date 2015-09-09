@@ -5,7 +5,7 @@ class Player:
         self.id = id
         self.position = position
         #self.info = dict()
-        self.info = {'pos':0,\
+        self.info = {
                     'g':0
                    }
 

@@ -1,5 +1,5 @@
 import random
-from teams import *
+from team import *
 
 def GetPots(teams):
     #sorted by rank
